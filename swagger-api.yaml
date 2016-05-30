@@ -1,0 +1,246 @@
+swagger: '2.0'
+info:
+  title: Qwizkool API
+  description: Create and edit Qwizbooks dynamically with Qwizkool API
+  version: 1.0.0
+host: vinod.qwizkool.com
+schemes:
+  - http
+basePath: /slim_api
+produces:
+  - application/json
+paths:
+  /qwizbooks:
+    get:
+      summary: Get Qwizbooks
+      description: |
+        The Qwizbooks endpoint returns all the qwizbooks, optinally filtered
+        with the search keyword. The response includes the title
+        and other details about each Qwizbook, and lists the Qwizbooks in the
+        proper display order.
+      parameters:
+        - name: search
+          in: query
+          description: Keyword search
+          required: false
+          type: string
+      tags:
+        - Qwizbooks
+      responses:
+        '200':
+          description: An array of Qwizbooks
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Qwizbook'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      tags:
+        - Qwizbooks
+      summary: Add a new Qwizbook
+      description: ""
+      operationId: addQwizbook
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: Pet object that needs to be added 
+          required: false
+          schema:
+            $ref: "#/definitions/Qwizbook"
+      responses:
+        "405":
+          description: Invalid input
+    put:
+      tags:
+        - Qwizbooks
+      summary: Update an existing Qwizbook
+      description: ""
+      operationId: updateQwizbook
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: Qwizbook object that needs to be updated
+          required: false
+          schema:
+            $ref: "#/definitions/Qwizbook"
+      responses:
+        "405":
+          description: Validation exception
+        "404":
+          description: Qwizbook not found
+        "400":
+          description: Invalid ID supplied
+  /qwizbooks/{qwizbookId}:
+    get:
+      tags:
+        - Qwizbook
+      summary: Find Qwizbook by ID
+      description: Returns a Qwizbook when ID is found
+      operationId: getQwizbookById
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: qwizbookId
+          description: ID of Qwizbook that needs to be fetched
+          required: true
+          type: integer
+          format: int64
+      responses:
+        "404":
+          description: Qwizbook not found
+        "200":
+          description: successful operation
+          schema:
+            $ref: "#/definitions/Qwizbook"
+        "400":
+          description: Invalid ID supplied
+    delete:
+      tags:
+        - Qwizbook
+      summary: Deletes a Qwizbook
+      description: ""
+      operationId: deleteQwizbook
+      produces:
+        - application/json
+      parameters:
+        - in: header
+          name: api_key
+          description: ""
+          required: true
+          type: string
+        - in: path
+          name: qwizbookId
+          description: Qwizbook id to delete
+          required: true
+          type: integer
+          format: int64
+      responses:
+        "400":
+          description: Invalid Qwizbook value
+definitions:
+  Qwizbook:
+    type: object
+    properties:
+      title:
+        type: string
+        description: 'Title of the Qwizbook,'
+      subtitle:
+        type: string
+        description: 'Sub-Title,'
+      description:
+        type: string
+        description: Short description.
+      category:
+        type: string
+        description: Category.
+      tags:
+        type: string
+        description: Tags.
+      owner:
+        type: string
+        description: Creator of this qwizbook
+      created_on:
+        type: string
+        description: Date of creation
+      is_public:
+        type: string
+        description: Whether shared publicly or not
+      sharing_enabled:
+        type: string
+        description: shared
+      shared_with:
+        type: string
+        description: shared with
+      qwizbookSections:
+        type: array
+        items:
+          $ref: '#/definitions/QwizbookSection'
+  QwizbookSection:
+    type: object
+    properties:
+      title:
+        type: string
+        description: 'Title of the QwizbookSection,'
+      is_starting:
+        type: string
+        description: 'Is this the first page in the section,'
+      qwizbookPages:
+        type: array
+        items:
+          $ref: '#/definitions/QwizbookPage'
+  QwizbookPage:
+    type: object
+    properties:
+      type:
+        type: string
+        description: 'Page type,'
+      text:
+        type: string
+        description: 'Page text,'
+      mediaUrls:
+        type: array
+        items:
+          $ref: '#/definitions/MediaUrl'      
+      choices:
+        type: array
+        items:
+          $ref: '#/definitions/Choice'
+  MediaUrl:
+    type: object
+    properties:
+      type:
+        type: string
+        description: 'Page type,'
+      text:
+        type: string
+        description: 'Page text,'
+      media_url:
+        type: string
+        description: 'Page text,'  
+      wide_media:
+        type: string
+        description: 'Page text,'  
+  Choice:
+    type: object
+    properties:
+      answer:
+        type: string
+        description: 'Page type,'
+      text:
+        type: string
+        description: 'Page text,'
+      media_type:
+        type: string
+        description: 'Page text,'  
+      media_text:
+        type: string
+        description: 'Page text,'  
+      media_url:
+        type: string
+        description: 'Page text,'  
+      wide_media:
+        type: string
+        description: 'Page text,'          
+  Error:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+      fields:
+        type: string
+
