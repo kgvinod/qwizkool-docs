@@ -59,10 +59,14 @@ Click on "Explore" button in qwizkool home page. If you do not see eny errors, t
 8. Changes done to the Docker container are not persistent. These changes need to be committed so that you get the fully configured
 container next time you launch docker. The procedure is as follows:  
 
-`root@c359511b8e09:/# exit`  
+From another host shell:  
+`docker commit -m "Qwizkool" -a "qwizkool" c359511b8e09 linode/lamp`  
 
-From the host shell:
-`docker commit -m "Qwizkool" -a "qwizkool" c359511b8e09 qwizkool/server:v1`
+Remember to replace the docker id `c359511b8e09` with yours.  
 
-Remember to replace the docker id `c359511b8e09` with yours.
+Once the command completes, exit the container  
+
+`root@c359511b8e09:/# exit  
+
+Relaunch the container again and make sure all changes are persisted and the wen server works as expected.  
 
