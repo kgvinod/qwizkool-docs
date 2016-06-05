@@ -10,8 +10,9 @@ Follow the procedure for Ubuntu 14.04
 
 3. Run the Docker container  
 Please complete the [QwizkoolDeveloperSetup](QwizkoolDeveloperSetup.md) before next step  
-
-`docker run -p 8080:80 -v ~/work/qwizkool/build/public_html:/var/www/example.com/public_html -t -i linode/lamp /bin/bash`  
+`mkdir -p ~/work/qwizkool/database`
+`chmod 777 -R ~/work/qwizkool/database`
+`docker run -p 8080:80 -v ~/work/qwizkool/build/public_html:/var/www/example.com/public_html -v ~/work/qwizkool/database:/var/www/example.com/database -t -i linode/lamp /bin/bash`  
 
 This is run the docker container and log into the container. At this point, you should see a shell prompt such as:
 `root@c359511b8e09:/#`  
@@ -73,7 +74,7 @@ Once the command completes, exit the container
 `root@c359511b8e09:/# exit  
 
 Now launch the new container and make sure all changes are persisted and the the server works as expected.  
-`docker run -p 8080:80 -v ~/work/qwizkool/build/public_html:/var/www/example.com/public_html -t -i qwizkool/server /bin/bash`  
+`docker run -p 8080:80 -v ~/work/qwizkool/build/public_html:/var/www/example.com/public_html -v ~/work/qwizkool/database:/var/www/example.com/database -t -i qwizkool/server /bin/bash`  
 
 
 
