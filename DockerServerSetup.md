@@ -9,7 +9,9 @@ Follow the procedure for Ubuntu 14.04
 sudo docker pull linode/lamp
 
 3. Run the Docker container
-docker run -p 8080:80 -t -i linode/lamp /bin/bash
+Please complete the [QwizkoolDeveloperSetup](QwizkoolDeveloperSetup.md) before next step
+
+docker run -p 8080:80 -v ~/work/qwizkool/build/public_html:/var/www/example.com/public_html -t -i linode/lamp /bin/bash
 
 This is run the docker container and log into the container. At this point,
 you should see a shell prompt such as:
@@ -40,4 +42,5 @@ Search for “DocumentRoot /var/www/example.com/public_html” and add the follo
     AllowOverride All
 </Directory>
 
+5. Start Apache service
 sudo service apache2 restart
