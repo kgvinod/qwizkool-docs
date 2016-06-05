@@ -60,7 +60,7 @@ Click on "Explore" button in qwizkool home page. If you do not see eny errors, t
 container next time you launch docker. The procedure is as follows:  
 
 From another host shell:  
-`docker commit -m "Qwizkool" -a "qwizkool" c359511b8e09 linode/lamp`  
+`docker commit -m "Qwizkool" -a "qwizkool" c359511b8e09 qwizkool/server`  
 
 Remember to replace the docker id `c359511b8e09` with yours.  
 
@@ -68,5 +68,8 @@ Once the command completes, exit the container
 
 `root@c359511b8e09:/# exit  
 
-Relaunch the container again and make sure all changes are persisted and the wen server works as expected.  
+Now launch the new container and make sure all changes are persisted and the the server works as expected.  
+`docker run -p 8080:80 -v ~/work/qwizkool/build/public_html:/var/www/example.com/public_html -t -i qwizkool/server /bin/bash`  
+
+
 
