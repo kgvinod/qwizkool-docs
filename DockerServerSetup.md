@@ -50,12 +50,19 @@ Search for `DocumentRoot /var/www/example.com/public_html` and add the following
 The qwizkool database file qwizkool.db will get created here.  
 
 6. Start Apache service  
-`sudo service apache2 restart`
+`root@c359511b8e09:/# sudo service apache2 restart`
 
 7. From the host system, launch the browser and go to http://localhost:8080/
 You should see the qwizkool home page. Enable the developer pane on the browser and watch the Network tab. 
-Click on "Explore" button in qwizkool home page. If you do not see eny errors, then the server setup is complete
+Click on "Explore" button in qwizkool home page. If you do not see eny errors, then the server setup is complete.  
 
 8. Changes done to the Docker container are not persistent. These changes need to be committed so that you get the fully configured
-container next time you launch docker. The procedure is as follows:
+container next time you launch docker. The procedure is as follows:  
+
+`root@c359511b8e09:/# exit`  
+
+From the host shell:
+`docker commit -m "Qwizkool" -a "qwizkool" c359511b8e09 qwizkool/server:v1`
+
+Remember to replace the docker id `c359511b8e09` with yours.
 
