@@ -1,1 +1,3 @@
-[Swagger setup and usage](docs/more_words.md)
+## Qwizkool Documents
+
+[Swagger setup and usage](UsingSwagger)
