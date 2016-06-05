@@ -1,4 +1,4 @@
-## Using swagger-api.yaml
+## Using swagger
 
 The swagger api yaml file contains the Qwizkool REST API specification. 
 This is a 'live' specification, which means it can be updated, tested and can be used to auto-generate API code.
