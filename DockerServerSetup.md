@@ -10,8 +10,8 @@ Follow the procedure for Ubuntu 14.04
 
 3. Run the Docker container  
 Please complete the [QwizkoolDeveloperSetup](QwizkoolDeveloperSetup.md) before next step  
-`mkdir -p ~/work/qwizkool/database`
-`chmod 777 -R ~/work/qwizkool/database`
+`mkdir -p ~/work/qwizkool/database`  
+`chmod 777 -R ~/work/qwizkool/database`  
 `docker run -p 8080:80 -v ~/work/qwizkool/build/public_html:/var/www/example.com/public_html -v ~/work/qwizkool/database:/var/www/example.com/database -t -i linode/lamp /bin/bash`  
 
 This is run the docker container and log into the container. At this point, you should see a shell prompt such as:
