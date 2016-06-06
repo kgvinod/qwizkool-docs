@@ -53,12 +53,12 @@ Search for `DocumentRoot /var/www/example.com/public_html` and add the following
 The qwizkool database file qwizkool.db will get created here.  
 
 ## Start Apache service  
-```
-root@c359511b8e09:/# vi /root/.bashrc
-Add this line the the end : service apache2 restart
-Save the file
-root@c359511b8e09:/# sudo service apache2 restart
-```
+
+`root@c359511b8e09:/# vi /root/.bashrc`  
+Add this line the the end : `service apache2 restart`  
+Save the file  
+`root@c359511b8e09:/# sudo service apache2 restart`  
+
 ## Verify that the web-server is working  
 From the host system, launch the browser and go to http://localhost:8080/  
 You should see the qwizkool home page. Enable the developer pane on the browser and watch the Network tab. 
