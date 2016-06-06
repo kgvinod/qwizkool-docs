@@ -76,7 +76,7 @@ Remember to replace the docker id `c359511b8e09` with yours.
 
 Once the command completes, exit the container  
 
-`root@c359511b8e09:/# exit  
+`root@c359511b8e09:/# exit`  
 
 ## Re-launch and finish setup
 
