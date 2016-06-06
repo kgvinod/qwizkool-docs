@@ -30,3 +30,4 @@ bower install
 cd ~/work/qwizkool/scripts  
 ./buildall.sh  
 ```
+1. Continue with server installation in [DockerServerSetup](DockerServerSetup.md)
