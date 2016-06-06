@@ -6,7 +6,7 @@
 
 ## Create branch with your feature:  
 
-`git checkout -b $feature_name`  
+`git checkout -b <feature_name>`  
 
 ## Write code. Commit changes:  
 
@@ -14,7 +14,7 @@
 
 ## Push your branch to GitLab:  
 
-`git push origin $feature_name`
+`git push origin <feature_name>`
 
 ## Review your code on commits page.  
 
