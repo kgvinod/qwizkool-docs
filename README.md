@@ -6,4 +6,4 @@
 
 [Setting up a test server in Ununtu VM](VMServerSetup.md)
 
-[Developer setup](qwizkoolDevelopersetup.md)
+[Developer setup](QwizkoolDevelopersetup.md)
