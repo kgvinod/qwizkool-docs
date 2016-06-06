@@ -28,12 +28,12 @@ build is always hosted in real time.
 
 From the docker container shell, run the following commands:  
 
-* Install basic components  
+### Install basic components  
 `root@c359511b8e09:/# sudo apt-get update`  
 `root@c359511b8e09:/# sudo apt-get install vim`  
 `root@c359511b8e09:/# sudo apt-get install php5-sqlite`  
 
-* Activate the mod_rewrite module  
+### Activate the mod_rewrite module  
 
 `root@c359511b8e09:/# sudo a2enmod rewrite`  
 
