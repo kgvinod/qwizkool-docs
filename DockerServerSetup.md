@@ -78,7 +78,7 @@ Once the command completes, exit the container
 
 `root@c359511b8e09:/# exit  
 
-## Re-kaunch and finish setup
+## Re-launch and finish setup
 
 Now launch the new container and make sure all changes are persisted and the the server works as expected.  
 `docker run -p 8080:80 -v ~/work/qwizkool/build/public_html:/var/www/example.com/public_html -v ~/work/qwizkool/database:/var/www/example.com/database -t -i qwizkool/server /bin/bash`  
