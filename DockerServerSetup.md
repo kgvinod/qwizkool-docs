@@ -24,7 +24,9 @@ The above command makes the qwizkool server available to the host on port 8080. 
 browser to launch qwizkool web. In addition, the command mounts the build directory of the development environment so that the latest
 build is always hosted in real time.  
 
-## From the docker container shell, run the following commands:  
+## Configure docker container
+
+From the docker container shell, run the following commands:  
 
 * Install basic components  
 `root@c359511b8e09:/# sudo apt-get update`  
@@ -57,11 +59,14 @@ Add this line the the end : service apache2 restart
 Save the file
 root@c359511b8e09:/# sudo service apache2 restart
 ```
-## From the host system, launch the browser and go to http://localhost:8080/
+## Verify that the web-server is working  
+From the host system, launch the browser and go to http://localhost:8080/  
 You should see the qwizkool home page. Enable the developer pane on the browser and watch the Network tab. 
 Click on "Explore" button in qwizkool home page. If you do not see eny errors, then the server setup is complete.  
 
-## Changes done to the Docker container are not persistent. These changes need to be committed so that you get the fully configured
+## Save the docker container 
+
+Changes done to the Docker container are not persistent. These changes need to be committed so that you get the fully configured
 container next time you launch docker. The procedure is as follows:  
 
 From another host shell:  
@@ -72,6 +77,8 @@ Remember to replace the docker id `c359511b8e09` with yours.
 Once the command completes, exit the container  
 
 `root@c359511b8e09:/# exit  
+
+## Re-kaunch and finish setup
 
 Now launch the new container and make sure all changes are persisted and the the server works as expected.  
 `docker run -p 8080:80 -v ~/work/qwizkool/build/public_html:/var/www/example.com/public_html -v ~/work/qwizkool/database:/var/www/example.com/database -t -i qwizkool/server /bin/bash`  
