@@ -7,3 +7,6 @@
 [Setting up a test server in Ununtu VM](VMServerSetup.md)
 
 [Developer setup](QwizkoolDeveloperSetup.md)
+
+[Developer Git Workflow](DeveloperWorkflow.md)
+
